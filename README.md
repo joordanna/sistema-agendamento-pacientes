@@ -1,4 +1,4 @@
-Sistema de Agendamento de Pacientes de Fisioterapia
+#Sistema de Agendamento de Pacientes de Fisioterapia
 Descrição
 
 Projeto de um sistema de agendamento e controle de consultas para pacientes de fisioterapia, desenvolvido para gerenciar pacientes e seus respectivos fisioterapeutas.
@@ -23,3 +23,15 @@ Observação: Este projeto é educativo e não está configurado para uso em pro
 Observações
 
 Desenvolvido a partir de um problema real de gerenciamento de consultas de fisioterapia, tradicionalmente controladas manualmente.
+
+## Exemplo de código SQL
+```sql
+CREATE TABLE consulta (
+    id_consulta INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    data_consulta DATE NOT NULL,
+    horario TIME NOT NULL,
+    id_fisio INT NOT NULL,
+    id_paciente INT NOT NULL,
+    FOREIGN KEY (id_fisio) REFERENCES fisioterapeuta(id_fisio) ON DELETE CASCADE,
+    FOREIGN KEY (id_paciente) REFERENCES paciente(id_paciente) ON DELETE CASCADE
+);
